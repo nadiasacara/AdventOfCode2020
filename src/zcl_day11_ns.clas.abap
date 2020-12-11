@@ -11,7 +11,7 @@ CLASS zcl_day11_ns DEFINITION
   PROTECTED SECTION.
   PRIVATE SECTION.
     DATA check_only_1 TYPE abap_bool.
-    DATA possible_neighbours TYPE i.
+    DATA occupation_limit TYPE i.
 
     METHODS move_and_count_occupied
       IMPORTING input         TYPE string_table
@@ -31,13 +31,13 @@ ENDCLASS.
 CLASS zcl_day11_ns IMPLEMENTATION.
   METHOD zif_aoc_ns~first.
     me->check_only_1 = abap_true.
-    me->possible_neighbours = 4.
+    me->occupation_limit = 4.
     result = me->move_and_count_occupied( input ).
   ENDMETHOD.
 
   METHOD zif_aoc_ns~second.
     me->check_only_1 = abap_false.
-    me->possible_neighbours = 5.
+    me->occupation_limit = 5.
     result = me->move_and_count_occupied( input ).
   ENDMETHOD.
 
@@ -54,7 +54,7 @@ CLASS zcl_day11_ns IMPLEMENTATION.
 
         new_line &&= SWITCH ty_char( line+off(1)
                             WHEN 'L' THEN SWITCH #( occup_seats WHEN 0 THEN '#' ELSE line+off(1) )
-                            WHEN '#' THEN COND #( WHEN occup_seats >= me->possible_neighbours THEN 'L' ELSE line+off(1) )
+                            WHEN '#' THEN COND #( WHEN occup_seats >= me->occupation_limit THEN 'L' ELSE line+off(1) )
                             ELSE line+off(1) ).
       ENDDO.
       APPEND new_line TO new_input.
