@@ -1,1 +1,0 @@
-TYPES tt_answers TYPE STANDARD TABLE OF string_table WITH EMPTY KEY.
