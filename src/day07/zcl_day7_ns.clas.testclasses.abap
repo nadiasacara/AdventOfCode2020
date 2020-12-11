@@ -37,7 +37,7 @@ CLASS ltcl_day7 IMPLEMENTATION.
 
   METHOD first_my_input.
     cut = NEW zcl_day7_ns( get_my_input( ) ).
-    cl_abap_unit_assert=>assert_equals( exp = 287 act = cut->first( ) ).
+*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->first( ) ).
   ENDMETHOD.
 
   METHOD second_32_short.
@@ -72,7 +72,7 @@ CLASS ltcl_day7 IMPLEMENTATION.
 
   METHOD second_my_input.
     cut = NEW zcl_day7_ns( get_my_input( ) ).
-    cl_abap_unit_assert=>assert_equals( exp = 48160 act = cut->second( ) ).
+*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->second( ) ).
   ENDMETHOD.
 
   METHOD get_my_input.
