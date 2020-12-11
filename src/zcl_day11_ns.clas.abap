@@ -72,8 +72,8 @@ CLASS zcl_day11_ns IMPLEMENTATION.
       WHILE ( i BETWEEN 1 AND lines( input ) ) AND ( off >= 0 AND off < strlen( input[ 1 ] ) ).
 
         DATA(line) = input[ i ].
-        result += SWITCH #( line+off(1) WHEN '#' THEN 1 WHEN 'L' THEN 0 ).
         IF line+off(1) <> '.' OR check_only_1 = abap_true.
+          result += SWITCH #( line+off(1) WHEN '#' THEN 1 ).
           EXIT.
         ENDIF.
 
