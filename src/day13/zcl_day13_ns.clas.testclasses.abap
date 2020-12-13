@@ -34,7 +34,7 @@ CLASS ltcl_day13 IMPLEMENTATION.
         ( |17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,983,x,29,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,19,x,x,x,23,x,x,x,x,x,x,x,397,x,x,x,x,x,37,x,x,x,x,x,x,13| )
     ).
     cut = NEW zcl_day13_ns( input ).
-    cl_abap_unit_assert=>assert_equals( exp = 2382 act = cut->first( ) ).
+*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->first( ) ).
   ENDMETHOD.
 
   METHOD second_1st_input.
@@ -97,7 +97,7 @@ CLASS ltcl_day13 IMPLEMENTATION.
         ( |17,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,983,x,29,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,19,x,x,x,23,x,x,x,x,x,x,x,397,x,x,x,x,x,37,x,x,x,x,x,x,13| )
     ).
     cut = NEW zcl_day13_ns( input = input start_t = 100000000000000 ).
-    cl_abap_unit_assert=>assert_equals( exp = 906332393333683 act = cut->second( ) ).
+*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->second( ) ).
   ENDMETHOD.
 
 ENDCLASS.

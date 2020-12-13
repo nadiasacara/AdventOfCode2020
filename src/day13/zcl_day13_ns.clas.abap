@@ -52,9 +52,8 @@ CLASS zcl_day13_ns IMPLEMENTATION.
     result = buses[ 1 ].
 
     LOOP AT buses REFERENCE INTO DATA(bus) FROM 2 WHERE table_line <> 'x' .
-      DATA(off) = sy-tabix - 1.
       DO.
-        IF ( result + off ) MOD bus->* = 0.
+        IF ( result + sy-tabix - 1 ) MOD bus->* = 0.
           step = get_least_common_multiple_of( a = step b = CONV #( bus->* ) ).
           EXIT.
         ELSE.
