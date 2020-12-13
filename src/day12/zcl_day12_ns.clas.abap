@@ -70,15 +70,15 @@ CLASS zcl_day12_ns IMPLEMENTATION.
   METHOD turn.
     IF step(1) = 'L' OR step(1) = 'R'.
       DATA(cardinals) = VALUE tt_cardinal_points(
-          ( point = 'N' left_point = 'W' )
-          ( point = 'E' left_point = 'N' )
-          ( point = 'S' left_point = 'E' )
-          ( point = 'W' left_point = 'S' )
+          ( right = 'N' left = 'W' )
+          ( right = 'E' left = 'N' )
+          ( right = 'S' left = 'E' )
+          ( right = 'W' left = 'S' )
       ).
       DO step+1 / 90 TIMES.
         direction = SWITCH #( step(1)
-            WHEN 'L' THEN cardinals[ point = direction ]-left_point
-            WHEN 'R' THEN cardinals[ left_point = direction ]-point ).
+            WHEN 'L' THEN cardinals[ right = direction ]-left
+            WHEN 'R' THEN cardinals[ left = direction ]-right ).
       ENDDO.
     ENDIF.
   ENDMETHOD.
