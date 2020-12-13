@@ -9,14 +9,12 @@ CLASS zcl_day13_ns DEFINITION
     METHODS zif_aoc_ns~second REDEFINITION.
 
     METHODS constructor
-      IMPORTING input   TYPE string_table
-                start_t TYPE int8 DEFAULT 0.
+      IMPORTING input   TYPE string_table.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
     DATA time TYPE i.
     DATA buses TYPE string_table.
-    DATA start_t TYPE int8.
 
     METHODS get_least_common_multiple_of
       IMPORTING a             TYPE int8
@@ -78,7 +76,6 @@ CLASS zcl_day13_ns IMPLEMENTATION.
     super->constructor( input ).
     me->time = input[ 1 ].
     SPLIT input[ 2 ] AT ',' INTO TABLE buses.
-    me->start_t = start_t.
   ENDMETHOD.
 
 ENDCLASS.
