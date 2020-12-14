@@ -1,5 +1,5 @@
 TYPES: BEGIN OF ty_operation,
-         position TYPE i,
+         position TYPE int8,
          value    TYPE int8,
        END OF ty_operation.
 TYPES tt_operation TYPE STANDARD TABLE OF ty_operation WITH EMPTY KEY.

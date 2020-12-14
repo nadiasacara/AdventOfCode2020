@@ -46,7 +46,7 @@ CLASS zcl_day14_ns IMPLEMENTATION.
         IF sy-subrc IS NOT INITIAL.
           INSERT VALUE #( position = operation->position ) INTO TABLE memory REFERENCE INTO mem.
         ENDIF.
-        mem->value = apply_mask_to_value( mask = CONV #( line->mask ) number = operation->value ).
+        mem->value = apply_mask_to_value( mask = line->mask number = operation->value ).
       ENDLOOP.
     ENDLOOP.
 
@@ -60,7 +60,7 @@ CLASS zcl_day14_ns IMPLEMENTATION.
 
     LOOP AT me->program REFERENCE INTO DATA(line).
       LOOP AT line->operations REFERENCE INTO DATA(operation).
-        LOOP AT me->apply_mask_to_position( mask = CONV #( line->mask ) number = CONV #( operation->position ) ) INTO DATA(pos).
+        LOOP AT me->apply_mask_to_position( mask = line->mask number = operation->position ) INTO DATA(pos).
 
           READ TABLE memory WITH TABLE KEY position = pos REFERENCE INTO DATA(mem).
           IF sy-subrc IS NOT INITIAL.
