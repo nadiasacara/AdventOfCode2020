@@ -53,12 +53,12 @@ CLASS ltcl_day5 IMPLEMENTATION.
 
   METHOD first_my_input.
     cut = NEW zcl_day5_ns( get_my_input( ) ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->first( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 970 act = cut->first( ) ).
   ENDMETHOD.
 
   METHOD second_my_input.
     cut = NEW zcl_day5_ns( get_my_input( ) ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->second( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 587 act = cut->second( ) ).
   ENDMETHOD.
 
   METHOD get_my_input.
