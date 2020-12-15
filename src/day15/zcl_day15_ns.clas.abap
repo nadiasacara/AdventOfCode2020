@@ -34,8 +34,8 @@ CLASS zcl_day15_ns IMPLEMENTATION.
 
     DO last_turn - lines( start_numbers ) TIMES.
       DATA(new_number) = SWITCH #( prev_turn-before_last_turn
-          WHEN 0 THEN 0
-          ELSE prev_turn-last_turn - prev_turn-before_last_turn ).
+                          WHEN 0 THEN 0
+                          ELSE prev_turn-last_turn - prev_turn-before_last_turn ).
 
       READ TABLE game WITH TABLE KEY number = new_number REFERENCE INTO DATA(new_game).
       IF sy-subrc IS NOT INITIAL.
