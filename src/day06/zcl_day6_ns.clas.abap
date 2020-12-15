@@ -44,8 +44,7 @@ CLASS zcl_day6_ns IMPLEMENTATION.
     LOOP AT answers REFERENCE INTO DATA(answer).
       IF answer->* IS NOT INITIAL.
         APPEND answer->* TO group_answer.
-      ENDIF.
-      IF answer->* IS INITIAL.
+      ELSE.
         APPEND group_answer TO result.
         CLEAR group_answer[].
       ENDIF.
