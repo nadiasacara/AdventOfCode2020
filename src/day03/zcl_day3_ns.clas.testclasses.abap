@@ -38,7 +38,7 @@ CLASS ltcl_day3 IMPLEMENTATION.
 
   METHOD first_my_input.
     cut = NEW zcl_day3_ns( get_my_input( ) ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->first( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 252 act = cut->first( ) ).
   ENDMETHOD.
 
   METHOD second_11.
@@ -61,7 +61,7 @@ CLASS ltcl_day3 IMPLEMENTATION.
 
   METHOD second_my_input.
     cut = NEW zcl_day3_ns( get_my_input( ) ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->second( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 2608962048 act = cut->second( ) ).
   ENDMETHOD.
 
   METHOD get_my_input.
