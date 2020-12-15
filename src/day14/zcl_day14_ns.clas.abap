@@ -94,9 +94,7 @@ CLASS zcl_day14_ns IMPLEMENTATION.
   METHOD convert_to_binary.
     DATA(nr) = i.
     DO 36 TIMES.
-      DATA(bit) = SWITCH i( nr
-          WHEN 0 THEN 0
-          ELSE nr MOD 2 ).
+      DATA(bit) = SWITCH i( nr WHEN 0 THEN 0 ELSE nr MOD 2 ).
       INSERT bit INTO result INDEX 1.
       nr = nr DIV 2.
     ENDDO.
@@ -117,24 +115,21 @@ CLASS zcl_day14_ns IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD apply_mask_to_position.
-
     DATA(binary) = me->convert_to_binary( number ).
     LOOP AT mask INTO DATA(char) WHERE table_line = '1' OR table_line = 'X'.
       binary[ sy-tabix ] = SWITCH #( char WHEN '1' THEN 1 ).
     ENDLOOP.
-    APPEND me->convert_from_binary( binary ) TO result.
-
     DATA(addresses) = VALUE tt_binary_adrs( ( binary ) ).
 
     LOOP AT mask INTO char WHERE table_line = 'X'.
       DATA(tabix) = sy-tabix.
       LOOP AT addresses INTO DATA(address) TO lines( addresses ).
         address[ tabix ] = 1.
-        APPEND me->convert_from_binary( address ) TO result.
         APPEND address TO addresses.
       ENDLOOP.
     ENDLOOP.
 
+    result = VALUE #( FOR adr IN addresses ( me->convert_from_binary( adr ) ) ).
   ENDMETHOD.
 
 ENDCLASS.
