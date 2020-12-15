@@ -27,7 +27,7 @@ CLASS ltcl_day9 IMPLEMENTATION.
 
   METHOD first_my_input.
     cut = NEW zcl_day9_ns( input = get_my_input( ) preamble = 25 ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->first( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 1492208709 act = cut->first( ) ).
   ENDMETHOD.
 
   METHOD second_preamble_5.
@@ -40,7 +40,7 @@ CLASS ltcl_day9 IMPLEMENTATION.
 
   METHOD second_my_input.
     cut = NEW zcl_day9_ns( input = get_my_input( ) preamble = 25 ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->second( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 238243506 act = cut->second( ) ).
   ENDMETHOD.
 
   METHOD get_my_input.
