@@ -35,7 +35,7 @@ CLASS ltcl_day6 IMPLEMENTATION.
 
   METHOD first_my_input.
     cut = NEW zcl_day6_ns( get_my_input( ) ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->first( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 6387 act = cut->first( ) ).
   ENDMETHOD.
 
   METHOD second_3groups_3.
@@ -53,7 +53,7 @@ CLASS ltcl_day6 IMPLEMENTATION.
 
   METHOD second_my_input.
     cut = NEW zcl_day6_ns( get_my_input( ) ).
-*    cl_abap_unit_assert=>assert_equals( exp = ... act = cut->second( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 3039 act = cut->second( ) ).
   ENDMETHOD.
 
   METHOD get_my_input.
