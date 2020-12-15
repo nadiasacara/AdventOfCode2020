@@ -14,7 +14,7 @@ CLASS ltcl_day15 DEFINITION FINAL FOR TESTING
     METHODS first_my_input FOR TESTING.
 
     METHODS second_1st_input FOR TESTING.
-    METHODS second_2nd_input FOR TESTING.
+    METHODS second_my_input FOR TESTING.
 
 ENDCLASS.
 
@@ -75,10 +75,10 @@ CLASS ltcl_day15 IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals( exp = 175594 act = cut->second( ) ).
   ENDMETHOD.
 
-  METHOD second_2nd_input.
-    DATA(input) = VALUE string_table( ( |1,3,2| ) ).
+  METHOD second_my_input.
+    DATA(input) = VALUE string_table( ( |12,20,0,6,1,17,7| ) ).
     cut = NEW zcl_day15_ns( input ).
-    cl_abap_unit_assert=>assert_equals( exp = 2578 act = cut->second( ) ).
+    cl_abap_unit_assert=>assert_equals( exp = 1437692 act = cut->second( ) ).
   ENDMETHOD.
 
 ENDCLASS.
