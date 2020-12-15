@@ -12,6 +12,9 @@ CLASS ltcl_day15 DEFINITION FINAL FOR TESTING
     METHODS first_6th_input FOR TESTING.
     METHODS first_7th_input FOR TESTING.
     METHODS first_my_input FOR TESTING.
+
+    METHODS second_1st_input FOR TESTING.
+
 ENDCLASS.
 
 
@@ -63,6 +66,12 @@ CLASS ltcl_day15 IMPLEMENTATION.
     DATA(input) = VALUE string_table( ( |12,20,0,6,1,17,7| ) ).
     cut = NEW zcl_day15_ns( input ).
     cl_abap_unit_assert=>assert_equals( exp = 866 act = cut->first( ) ).
+  ENDMETHOD.
+
+  METHOD second_1st_input.
+    DATA(input) = VALUE string_table( ( |0,3,6| ) ).
+    cut = NEW zcl_day15_ns( input ).
+    cl_abap_unit_assert=>assert_equals( exp = 175594 act = cut->second( ) ).
   ENDMETHOD.
 
 ENDCLASS.
