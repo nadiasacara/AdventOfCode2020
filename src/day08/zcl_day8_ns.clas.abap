@@ -59,12 +59,10 @@ CLASS zcl_day8_ns IMPLEMENTATION.
     WHILE i <= lines( instructions ).
 
       IF line_exists( executed_instructs[ table_line = i ] ).
-
         result-input_is_valid = abap_false.
         RETURN.
 
       ELSE.
-
         INSERT i INTO TABLE executed_instructs.
         DATA(instruction) = instructions[ i ].
 
