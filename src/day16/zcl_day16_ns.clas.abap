@@ -47,6 +47,7 @@ CLASS zcl_day16_ns IMPLEMENTATION.
 
   METHOD constructor.
     super->constructor( input ).
+
     LOOP AT input INTO DATA(line) TO line_index( input[ table_line = '' ] ) - 1.
       FIND REGEX '(\w*): (\d+)-(\d+) or (\d+)-(\d+)' IN line
         SUBMATCHES DATA(name) DATA(min1) DATA(max1) DATA(min2) DATA(max2).
@@ -93,6 +94,7 @@ CLASS zcl_day16_ns IMPLEMENTATION.
         ENDIF.
       ENDLOOP.
     ENDDO.
+
   ENDMETHOD.
 
   METHOD get_all_valid_checks_for_flds.
