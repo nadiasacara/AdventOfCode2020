@@ -10,6 +10,7 @@ CLASS zcl_day17_ns1_linear_input DEFINITION
 
     METHODS constructor
       IMPORTING input TYPE string_table.
+
   PROTECTED SECTION.
   PRIVATE SECTION.
     DATA cubes TYPE tt_char.
@@ -162,7 +163,6 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
     result = VALUE #( ( my_coords ) ).
 
     LOOP AT my_coords INTO DATA(coord).
-
       DATA(index) = sy-tabix.
 
       LOOP AT result INTO DATA(np) TO lines( result ).
