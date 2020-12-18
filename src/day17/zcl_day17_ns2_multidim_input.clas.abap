@@ -94,8 +94,7 @@ CLASS zcl_day17_ns2_multidim_input IMPLEMENTATION.
         ( LINES OF VALUE #( FOR matrix IN cube ( VALUE #(
                 ( initial_line )
                 ( LINES OF VALUE #( FOR line IN matrix ( VALUE #( ( '.' ) ( LINES OF line ) ( '.' ) ) ) ) )
-                ( initial_line ) )
-             ) ) )
+                ( initial_line ) ) ) ) )
         ( initial_matrix ) ).
   ENDMETHOD.
 
@@ -150,8 +149,7 @@ CLASS zcl_day17_ns2_multidim_input IMPLEMENTATION.
             ( LINES OF VALUE #( FOR matrix IN cube ( VALUE #(
                     ( initial_line )
                     ( LINES OF VALUE #( FOR line IN matrix ( VALUE #( ( '.' ) ( LINES OF line ) ( '.' ) ) ) ) )
-                    ( initial_line ) )
-                 ) ) )
+                    ( initial_line ) ) ) ) )
             ( initial_matrix ) ) ) ) )
         ( initial_cube ) ).
   ENDMETHOD.
