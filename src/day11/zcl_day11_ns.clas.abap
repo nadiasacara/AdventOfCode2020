@@ -17,7 +17,7 @@ CLASS zcl_day11_ns DEFINITION
       IMPORTING input         TYPE string_table
       RETURNING VALUE(result) TYPE i.
 
-    METHODS get_occupied_seats
+    METHODS get_occupied_seats_around
       IMPORTING input         TYPE string_table
                 coord         TYPE ty_coord
       RETURNING VALUE(result) TYPE i.
@@ -50,7 +50,7 @@ CLASS zcl_day11_ns IMPLEMENTATION.
         DATA(off) = sy-index - 1.
         result += SWITCH #( line+off(1) WHEN '#' THEN 1 ).
         DATA(occup_seats) = SWITCH #( line+off(1) WHEN '#' OR 'L'
-                            THEN get_occupied_seats( input = input coord = VALUE #( line = sy-tabix column = sy-index ) ) ).
+                            THEN get_occupied_seats_around( input = input coord = VALUE #( line = sy-tabix column = sy-index ) ) ).
 
         new_line &&= SWITCH ty_char( line+off(1)
                             WHEN 'L' THEN SWITCH #( occup_seats WHEN 0 THEN '#' ELSE line+off(1) )
@@ -64,7 +64,7 @@ CLASS zcl_day11_ns IMPLEMENTATION.
                      ELSE me->move_and_count_occupied( new_input ) ).
   ENDMETHOD.
 
-  METHOD get_occupied_seats.
+  METHOD get_occupied_seats_around.
     LOOP AT me->get_steps( ) INTO DATA(step).
       DATA(i) = coord-line + step-line.
       DATA(off) = coord-column + step-column - 1.
