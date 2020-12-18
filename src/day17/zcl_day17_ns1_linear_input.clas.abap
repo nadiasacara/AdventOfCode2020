@@ -132,9 +132,9 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
   METHOD get_neighbours_pos.
     DATA(coords) = me->convert_position_to_coords( pos ).
 
-    DATA(neighbr_coords) = me->get_neighbours_coords( coords ).
+    DATA(neighbours_coords) = me->get_neighbours_coords( coords ).
 
-    result = VALUE #( FOR pos_coord IN neighbr_coords ( me->convert_coords_to_position( pos_coord ) ) ).
+    result = VALUE #( FOR coord IN neighbours_coords ( me->convert_coords_to_position( coord ) ) ).
   ENDMETHOD.
 
   METHOD convert_position_to_coords.
