@@ -89,6 +89,7 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
   METHOD add_inactive_neighbours.
     DATA(dim_len) = 1.
     result = cubes.
+    clear nr_cubes_in_dim.
 
     LOOP AT dimensions REFERENCE INTO DATA(dim).
 
@@ -106,13 +107,8 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
 
       dim->* += 2.
       dim_len = old_dimension_len * dim->*.
+      APPEND dim_len TO nr_cubes_in_dim.
       result = new_result.
-    ENDLOOP.
-
-    nr_cubes_in_dim = VALUE tt_int( ). DATA(last_dim) = 1.
-    LOOP AT dimensions INTO DATA(dimension).
-      last_dim *= dimension.
-      APPEND last_dim TO nr_cubes_in_dim.
     ENDLOOP.
   ENDMETHOD.
 
