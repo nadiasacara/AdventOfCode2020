@@ -33,11 +33,13 @@ CLASS zcl_day17_ns1_linear_input DEFINITION
       IMPORTING pos           TYPE i
                 cubes         TYPE tt_char
       RETURNING VALUE(result) TYPE tt_int.
+
     METHODS get_result_cubes
       IMPORTING
         cubes         TYPE tt_char
       RETURNING
         VALUE(result) TYPE tt_char.
+
     METHODS convert_position_to_coords
       IMPORTING pos           TYPE i
       RETURNING VALUE(result) TYPE tt_int.
@@ -45,11 +47,10 @@ CLASS zcl_day17_ns1_linear_input DEFINITION
     METHODS convert_coords_to_position
       IMPORTING coords        TYPE tt_int
       RETURNING VALUE(result) TYPE i.
+
     METHODS get_neighbours_coords
-      IMPORTING
-        my_coords     TYPE tt_int
-      RETURNING
-        VALUE(result) TYPE tt_coords_list.
+      IMPORTING my_coords     TYPE tt_int
+      RETURNING VALUE(result) TYPE tt_coords_list.
 
 ENDCLASS.
 
