@@ -33,7 +33,6 @@ CLASS zcl_day17_ns2_multidim_input DEFINITION
       RETURNING VALUE(result) TYPE tt_coord.
 
 
-
     METHODS get_result_cube2
       RETURNING VALUE(result) TYPE char_cube4.
 
@@ -184,6 +183,5 @@ CLASS zcl_day17_ns2_multidim_input IMPLEMENTATION.
                         ( w = l z = k y = j x = i ) ).
     DELETE result WHERE x = coord-x AND y = coord-y AND z = coord-z AND w = coord-w.
   ENDMETHOD.
-
 
 ENDCLASS.
