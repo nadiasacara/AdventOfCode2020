@@ -31,7 +31,7 @@ CLASS zcl_day17_ns1_linear_input DEFINITION
       RETURNING VALUE(result) TYPE i.
 
     METHODS get_neighbours_pos
-      IMPORTING pos           TYPE i
+      IMPORTING my_position           TYPE i
                 cubes         TYPE tt_char
       RETURNING VALUE(result) TYPE tt_int.
 
@@ -125,12 +125,12 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
 
   METHOD count_active_neighbours.
     result = REDUCE #( INIT sum = 0
-                       FOR p IN me->get_neighbours_pos( pos = pos cubes  = cubes )
+                       FOR p IN me->get_neighbours_pos( my_position = pos cubes  = cubes )
                        NEXT sum += SWITCH #( cubes[ p ] WHEN '#' THEN 1 ) ).
   ENDMETHOD.
 
   METHOD get_neighbours_pos.
-    DATA(coords) = me->convert_position_to_coords( pos ).
+    DATA(coords) = me->convert_position_to_coords( my_position ).
 
     DATA(neighbours_coords) = me->get_neighbours_coords( coords ).
 
