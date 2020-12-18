@@ -39,9 +39,9 @@ CLASS zcl_day4_ns IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD zif_aoc_ns~second.
-    LOOP AT me->fill_passes( ) INTO DATA(pass).
-      result += SWITCH #( me->has_all_fields_valid( pass ) WHEN abap_true THEN 1 ).
-    ENDLOOP.
+    result = REDUCE #( INIT sum = 0
+                FOR pass IN me->fill_passes( )
+                NEXT sum += SWITCH #( me->has_all_fields_valid( pass ) WHEN abap_true THEN 1 ) ).
   ENDMETHOD.
 
   METHOD has_all_fields.
