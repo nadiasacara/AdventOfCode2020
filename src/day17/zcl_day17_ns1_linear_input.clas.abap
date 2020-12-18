@@ -117,20 +117,17 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD calculate_new_values.
-    LOOP AT cubes INTO DATA(cube).
-      DATA(actives) = me->count_active_neighbours( pos = sy-tabix cubes = cubes ).
-      APPEND SWITCH #( cube
-                WHEN '.' THEN SWITCH #( actives WHEN 3 THEN '#' ELSE '.' )
-                WHEN '#' THEN SWITCH #( actives WHEN 2 OR 3 THEN '#' ELSE '.' ) ) TO result.
-    ENDLOOP.
+    result = VALUE #( FOR cube IN cubes INDEX INTO i
+                ( SWITCH #( me->count_active_neighbours( pos = i cubes = cubes )
+                        WHEN '2' THEN SWITCH #( cube WHEN '#' THEN '#' ELSE '.' )
+                        WHEN '3' THEN '#' ELSE '.' ) ) ).
   ENDMETHOD.
 
   METHOD count_active_neighbours.
     result = REDUCE #( INIT sum = 0
-      FOR p IN me->get_neighbours_pos( pos = pos cubes  = cubes )
-      NEXT sum += SWITCH #( cubes[ p ] WHEN '#' THEN 1 ) ).
+                       FOR p IN me->get_neighbours_pos( pos = pos cubes  = cubes )
+                       NEXT sum += SWITCH #( cubes[ p ] WHEN '#' THEN 1 ) ).
   ENDMETHOD.
-
 
   METHOD get_neighbours_pos.
     DATA(coords) = me->convert_position_to_coords( pos ).
