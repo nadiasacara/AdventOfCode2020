@@ -104,7 +104,8 @@ CLASS zcl_day17_ns2_multidim_input IMPLEMENTATION.
                         ( VALUE #( FOR c IN line INDEX INTO x (
                             SWITCH #( me->count_active_neighbours( coord = VALUE #( x = x y = y z = z ) cube = cube )
                                 WHEN 2 THEN SWITCH #( c WHEN '#' THEN '#' ELSE '.' )
-                                WHEN 3 THEN '#' ELSE '.' ) ) ) ) ) ) ).
+                                WHEN 3 THEN '#'
+                                ELSE '.' ) ) ) ) ) ) ).
   ENDMETHOD.
 
   METHOD count_active_neighbours.
@@ -161,7 +162,8 @@ CLASS zcl_day17_ns2_multidim_input IMPLEMENTATION.
                             ( VALUE #( FOR c IN line INDEX INTO x (
                                 SWITCH #( me->count_active_neighbours2( coord = VALUE #( x = x y = y z = z w = w ) cube4 = cube4 )
                                     WHEN 2 THEN SWITCH #( c WHEN '#' THEN '#' ELSE '.' )
-                                    WHEN 3 THEN '#' ELSE '.' ) ) ) ) ) ) ) ) ).
+                                    WHEN 3 THEN '#'
+                                    ELSE '.' ) ) ) ) ) ) ) ) ).
   ENDMETHOD.
 
   METHOD count_active_neighbours2.

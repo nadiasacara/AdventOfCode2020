@@ -116,7 +116,8 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
     result = VALUE #( FOR cube IN cubes INDEX INTO i
                 ( SWITCH #( me->count_active_neighbours( pos = i cubes = cubes )
                         WHEN '2' THEN SWITCH #( cube WHEN '#' THEN '#' ELSE '.' )
-                        WHEN '3' THEN '#' ELSE '.' ) ) ).
+                        WHEN '3' THEN '#'
+                        ELSE '.' ) ) ).
   ENDMETHOD.
 
   METHOD count_active_neighbours.
