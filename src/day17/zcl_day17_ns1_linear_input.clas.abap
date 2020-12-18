@@ -31,7 +31,7 @@ CLASS zcl_day17_ns1_linear_input DEFINITION
       RETURNING VALUE(result) TYPE i.
 
     METHODS get_neighbours_pos
-      IMPORTING my_position           TYPE i
+      IMPORTING my_position   TYPE i
                 cubes         TYPE tt_char
       RETURNING VALUE(result) TYPE tt_int.
 
@@ -89,7 +89,7 @@ CLASS zcl_day17_ns1_linear_input IMPLEMENTATION.
   METHOD add_inactive_neighbours.
     DATA(dim_len) = 1.
     result = cubes.
-    clear nr_cubes_in_dim.
+    CLEAR nr_cubes_in_dim.
 
     LOOP AT dimensions REFERENCE INTO DATA(dim).
 
